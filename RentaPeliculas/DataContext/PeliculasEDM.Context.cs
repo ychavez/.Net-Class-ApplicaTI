@@ -66,5 +66,47 @@ namespace RentaPeliculas.DataContext
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetClientes_Result>("GetClientes", idClienteParameter);
         }
+    
+        public virtual int CrudRentas(Nullable<System.Guid> idRentas, Nullable<System.Guid> idPelicula, Nullable<System.Guid> idCliente, Nullable<System.DateTime> fecha, Nullable<short> accion)
+        {
+            var idRentasParameter = idRentas.HasValue ?
+                new ObjectParameter("IdRentas", idRentas) :
+                new ObjectParameter("IdRentas", typeof(System.Guid));
+    
+            var idPeliculaParameter = idPelicula.HasValue ?
+                new ObjectParameter("IdPelicula", idPelicula) :
+                new ObjectParameter("IdPelicula", typeof(System.Guid));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(System.Guid));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var accionParameter = accion.HasValue ?
+                new ObjectParameter("Accion", accion) :
+                new ObjectParameter("Accion", typeof(short));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CrudRentas", idRentasParameter, idPeliculaParameter, idClienteParameter, fechaParameter, accionParameter);
+        }
+    
+        public virtual ObjectResult<GetRentas_Result> GetRentas(Nullable<System.Guid> idRentas, Nullable<System.Guid> idPelicula, Nullable<System.Guid> idCliente)
+        {
+            var idRentasParameter = idRentas.HasValue ?
+                new ObjectParameter("IdRentas", idRentas) :
+                new ObjectParameter("IdRentas", typeof(System.Guid));
+    
+            var idPeliculaParameter = idPelicula.HasValue ?
+                new ObjectParameter("IdPelicula", idPelicula) :
+                new ObjectParameter("IdPelicula", typeof(System.Guid));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("IdCliente", idCliente) :
+                new ObjectParameter("IdCliente", typeof(System.Guid));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetRentas_Result>("GetRentas", idRentasParameter, idPeliculaParameter, idClienteParameter);
+        }
     }
 }

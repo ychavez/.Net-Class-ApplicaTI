@@ -213,6 +213,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Clases\clsClientes.cs" />
+    <Compile Include="Clases\clsRentas.cs" />
     <Compile Include="Clases\ECrud.cs" />
     <Compile Include="Clases\ICrud.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -221,7 +222,11 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RentaPeliculasController.cs" />
     <Compile Include="DataContext\GetClientes_Result.cs">
+      <DependentUpon>PeliculasEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContext\GetRentas_Result.cs">
       <DependentUpon>PeliculasEDM.tt</DependentUpon>
     </Compile>
     <Compile Include="DataContext\Peliculas.cs">
@@ -250,6 +255,7 @@
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Rentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -956,6 +962,7 @@
     <Content Include="Views\Shared\_AdminLteBreadcrumb.cshtml" />
     <Content Include="Views\AdminLte\Index.cshtml" />
     <Content Include="Views\AdminLte\Colors.cshtml" />
+    <Content Include="Views\RentaPeliculas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -16,7 +16,7 @@
     }
 }
 
-<table class="table table-hover">
+<table class="table table-hover table-bordered">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Titulo)
@@ -40,9 +40,9 @@
 @{ 
     if (User.Identity.IsAuthenticated)
     {
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) 
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id });
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-warning" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new {@class = "btn btn-danger" });
     }
 }
 
